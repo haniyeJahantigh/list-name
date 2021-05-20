@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Name from './component/Name'
+import NamesList from './component/NamesList';
+import PEOPLE from './data'
 import './App.css';
+import Search from './component/Search';
+import ClearList from './component/ClearList';
 
 function App() {
+  const [search, setSearch] = useState('')
+  const handleSearch = (search) =>{
+    setSearch(search)
+  }
+
+  const handleClearInput = () =>{
+    setSearch('')
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search onSearch={handleSearch} search={search}/>
+      <NamesList datas={PEOPLE} search={search}/>
+      {search && <ClearList content='Clear List' onClick={handleClearInput}/>}
     </div>
   );
 }
