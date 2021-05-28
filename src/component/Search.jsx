@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import './Search.css'
 
 const Search = ({onSearch, search}) => {
@@ -9,15 +8,13 @@ const Search = ({onSearch, search}) => {
                 type="text" 
                 value={search}
                 className='search' 
-                placeholder='Type Here...' 
+                placeholder='Type to filter...' 
                 onChange={(e) => onSearch(e.target.value)}
             />
         </div>
     )
 }
 
-Search.propTypes = {
 
-}
 
 export default Search

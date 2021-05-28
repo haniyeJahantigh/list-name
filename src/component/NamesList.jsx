@@ -8,8 +8,9 @@ const NamesList = ({datas, search}) => {
     const filterDatas = datas.filter(person => person.name.toLocaleLowerCase().startsWith(search))
     const showNames = filterDatas.map(person => <Name data={person}/>)
     
+    
     return (
-        <div className='namesListContainer'>
+        <div className='namesListContainer' >
             {showNames}
         </div>
     )
